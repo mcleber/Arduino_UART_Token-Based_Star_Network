@@ -12,10 +12,7 @@
   <img src="images/topologia_estrela_uart_arduinos.png" width="450">
 </p>
 
-#### Important Notes:
-All comments, docstrings, and runtime messages in the source code are written in Portuguese.
-
-This project was developed and validated in a simulated environment.
+**Important Notes:** All comments, docstrings, and runtime messages in the source code are written in Portuguese. This project was developed and validated in a simulated environment.
 
 ---
 
@@ -36,11 +33,11 @@ All inter-router communication is **mediated by the central node**, meaning no d
 
 The project demonstrates several core embedded systems and networking concepts:
 
-- Token ring protocol over serial UART communication
+- Token-based medium access control over UART communication
 - Star topology network with a centralized arbitrator
 - Flit-based packet structure (ORIG / DEST / PAY)
 - ACK-based reliable delivery with timeout and retransmission
-- Circular receive buffer to prevent data loss
+- Buffer handling and flushing to prevent residual data corruption
 - Multi-channel SoftwareSerial management on a single Arduino
 
 ---
@@ -135,10 +132,11 @@ Each message is split into **3 flits**, sent sequentially over UART:
 
 If the destination router does not send an ```ACK```:
 
-- CENTRAL detects a timeout
-- CENTRAL does not advance the token
-- CENTRAL requests that the package be resent by the origin
-- The same packet is repeated within the same token cycle
+- CENTRAL detects a ```timeout```
+- CENTRAL does not advance the ```token```
+- The origin does not receive an ```ACK``` and automatically retransmits the packet
+within the same token cycle
+- The same packet is retransmitted within the same ```token``` cycle
 
 This guarantees that:
 
