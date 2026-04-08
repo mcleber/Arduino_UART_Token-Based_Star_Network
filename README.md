@@ -188,8 +188,8 @@ Configuration Constants:
 To configure a peripheral node, edit the following section at the top of its ```.ino``` file:
 
 ```cpp
-const char MEU_NOME[]    = "NORTH";   // This node's name
-const char MEU_DESTINO[] = "SOUTH";   // Valid: SOUTH, EAST, WEST, CENTRAL
+const char MEU_NOME[]    = "NORTE";   // This node's name
+const char MEU_DESTINO[] = "SUL";   // Valid: SOUTH, EAST, WEST
 
 const char* payloads[] = {
   "Message 1",
