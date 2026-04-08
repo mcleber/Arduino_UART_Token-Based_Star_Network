@@ -12,7 +12,10 @@
   <img src="images/topologia_estrela_uart_arduinos.png" width="450">
 </p>
 
-**Important Notes:** All comments, docstrings, and runtime messages in the source code are written in Portuguese. This project was developed and validated in a simulated environment.
+#### Important Notes
+
+- All comments, docstrings, and runtime messages in the source code are written in Portuguese  
+- This project was developed and validated in a simulated environment
 
 ---
 
@@ -74,7 +77,7 @@ Arduino_UART_Token-Based_Star_Network/
 3. Central forwards the packet to the destination node
 4. Destination receives the packet and replies with ```ACK```
 5. Central forwards the ```ACK``` back to the origin
-6. Central advances the token to the next active node
+6. Central advances the ```token``` **only after successful delivery** or when the node reports ```NADA```
 7. When all nodes reply ```NADA```, the session ends
 
 ### Packet Structure
@@ -134,9 +137,7 @@ If the destination router does not send an ```ACK```:
 
 - CENTRAL detects a ```timeout```
 - CENTRAL does not advance the ```token```
-- The origin does not receive an ```ACK``` and automatically retransmits the packet
-within the same token cycle
-- The same packet is retransmitted within the same ```token``` cycle
+- The origin does not receive an ```ACK``` and automatically retransmits the packet within the same token cycle
 
 This guarantees that:
 
@@ -205,7 +206,7 @@ int totalPacotes = 3; // Must match the number of entries in payloads[]
 
 - Centralized token arbitration in star topology
 - Reliable delivery with ACK and automatic retransmission on timeout
-- Circular RX buffer to prevent data loss during processing
+- Buffer handling and flushing to prevent residual data corruption
 - Flit misalignment detection and automatic reset
 - Nodes marked as finished after replying NADA; token skips them
 - Session terminates cleanly when all nodes are done
