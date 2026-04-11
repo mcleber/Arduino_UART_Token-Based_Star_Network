@@ -204,7 +204,7 @@ int totalPacotes = 3; // Must match the number of entries in payloads[]
 
 ## Features
 
-- Centralized token arbitration in star topology
+- Centralized token arbitration in star topology (Norte -> Sul -> Leste -> Oeste -> Norte)
 - Reliable delivery with ACK and automatic retransmission on timeout
 - Buffer handling and flushing to prevent residual data corruption
 - Flit misalignment detection and automatic reset
