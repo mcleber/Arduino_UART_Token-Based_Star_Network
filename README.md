@@ -228,7 +228,7 @@ This project is open-source and available under the GNU General Public License v
 
 ---
 
-## Author
+## Additional Notes
 
 Developed as an embedded systems and digital communication project.
 
