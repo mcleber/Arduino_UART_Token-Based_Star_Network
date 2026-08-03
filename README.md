@@ -5,7 +5,7 @@
 ![Platform](https://img.shields.io/badge/Platform-Arduino-blue)
 ![IDE](https://img.shields.io/badge/IDE-Arduino%20IDE-blue)
 ![Language](https://img.shields.io/badge/Language-C%2B%2B-orange)
-![License](https://img.shields.io/badge/License-GPL--3.0-blue)
+![License](https://img.shields.io/badge/License-GPL--3.0-darkgray)
 
 <!-- ![Gameplay Demo](images/uart_com.png) -->
 <p align="center">
